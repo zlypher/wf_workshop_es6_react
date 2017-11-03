@@ -1,87 +1,325 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+        <title>ES6 and React - Introduction</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h1>ES6 and React</h1>
-				</section>
-				<section>
-					<h2>Topics</h2>
-					<ul>
-						<li>ES6 Features</li>
-						<li>React</li>
-						<li>JSX</li>
-						<li>Dive into React</li>
-					</ul>
-				</section>
-				<section>
-					<section>
-						<h2>ES6 Features</h2>
-					</section>
-					<section>
-						<ul>
-							<li>let/const</li>
-							<li>Destructuring</li>
-							<li>Arrow Functions</li>
-							<li>...</li>
-						</ul>
-					</section>
-					<section>
-						<h3>let/const</h3>
-						<ul>
-							<li class="fragment">...</li>
-						</ul>
-					</section>
-				</section>
-				<section>
-					<h2>React</h2>
-				</section>
-				<section>
-					<h2>JSX</h2>
-				</section>
-				<section>
-					<h2>Dive into React</h2>
-				</section>
-			</div>
-		</div>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>ES6 and React</h1>
+                    <p>Patrick Mannsberger and Thomas Prochazka</p>
+                </section>
+                <section>
+                    <h2>Topics</h2>
+                    <ul>
+                        <li>ES6 Features</li>
+                        <li>React</li>
+                        <li>JSX</li>
+                        <li>Dive into React</li>
+                        <li>NPM and Bundling</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h2>ES6 Features</h2>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>let/const</li>
+                            <li>Destructuring</li>
+                            <li>Spread</li>
+                            <li>Arrow Functions</li>
+                            <li>Template Literals</li>
+                            <li>many more...</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>let/const</h3>
+                        <pre><code data-trim>
+let numberOfPages = 5;
+const answerToEverything = 42;
+</code></pre>
+                        <ul>
+                            <li>never use "var"</li>
+                            <li>use "const" as much as possible</li>
+                            <li>everywhere else use "let"</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>let/const #2</h3>
+                        <ul>
+                            <li>"let" is like traditional block scoping (e.g. C#)</li>
+                            <li>"const" is a constant reference</li>
+                            <li>BEWARE! The referenced object is still mutable</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Destructuring</h3>
+                        <p>quick extracting of properties from objects/arrays</p>
+                        <pre><code data-trim>
+let obj = { a: 123, x: 345, y: 456, z: "ABC" };
+let { x, y } = obj;
+x // Output: 345
+y // Output: 456
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>Destructuring #2</h3>
+                        <p>can be used for function parameters</p>
+                        <pre><code data-trim>
+function doSomething({ optA, optB }) { /* ... */ }
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+let options = { optA: 123, optB: "Hello", optC: "Test" };
+doSomething(options);
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>Spread</h3>
+                        <pre><code data-trim>
+let [ x, ...y ] = [ "a", "b", "c" ];
+// x: "a", y: [ "b", "c" ]
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+let { a, ...b } = { a: 123, b: 456, c: "test" };
+// a: 123, b: { b: 456, c: "test" }
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>Arrow Functions</h3>
+                        <p>new way to define functions as expressions</p>
+                        <pre><code data-trim>
+let add = (a, b) => a + b;
+add(2, 3)
+// Output: 5
+                        </code></pre>
+                        <ul>
+                            <li>shorter to write</li>
+                            <li>implicit binding of "this"</li>
+                            <li>implicit return statement, if only one expression</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Arrow Functions #2</h3>
+                        <p>when to use parentheses...</p>
+                        <pre><code data-trim>
+() => "ABC";     // no parameter: required
+a => "ABC";      // one parameter: optional
+(a, b) => "ABC"; // two or more parameters: required
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Arrow Functions #3</h3>
+                        <p>"return;" necessary with multiple statements</p>
+                        <pre><code data-trim>
+(a, b, c) => {
+    // Do something
+    return a + b + c;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Template literals</h3>
+                        <p>easy string formatting</p>
+                        <pre><code data-trim>
+const a = "Test";
+const tmpl = `Hello ${a}`;
+tmpl; // "Hello Test"
+
+const renderTemplate = (name) => `Hello ${name}`;
+renderTemplate("World"); // "Hello World"
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>React</h2>
+                        <blockquote>"A JavaScript library for building user interfaces"</blockquote>
+                    </section>
+                    <section>
+                        <p>Very flexibel; mostly used as a framework for a whole app or website</p>
+                        <ul>
+                            <li>react is not bound to the DOM</li>
+                            <li>component based -> should be independant</li>
+                            <li>one way data-binding -> components know, when they should rerender</li>
+                            <li>components can be functions or classes</li>
+                            <li>prefer function components (no state)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>class component</h3>
+                        <pre><code data-trim>
+class AlertMessage extends React.Component {
+    constructor() {
+        super();
+    }
+
+    render() {
+        return <h1>{this.props.message}</h1>;
+    }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>functional component</h3>
+                        <pre><code data-trim>
+const AlertMessage = (props) => {
+    return <h1>{props.message}</h1>;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>render to dom</h3>
+                        <pre><code data-trim>
+ReactDOM.render(
+    &lt;AlertMessage message="Hello World" /&gt;,
+    document.querySelector("#app-root"));
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>JSX</h2>
+                    </section>
+                    <section>
+                        <p>is an extendend JS syntax and not required for react. Is used to mix HTML with JS.</p>
+                        <pre><code data-trim>
+let msgClass = "alert alert--success";
+let message = "Hello World";
+
+<h1 className={msgClass}>
+    {message}
+</h1>
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <h2>Dive into React</h2>
+                    <a href="https://codesandbox.io/s/new" target="_blank">https://codesandbox.io/s/new</a>
+                </section>
+                <section>
+                    <section>
+                        <h2>NPM and Bundling</h2>
+                    </section>
+                    <section>
+                        <h2>Node packages</h2>
+                        <ul>
+                            <li>install node/npm (via nvm)</li>
+                            <li>requires package.json in root directory</li>
+                            <li>dependencies can be installed with "npm install"</li>
+                            <li>run with "npm run dev"</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>package.json</h2>
+                        <ul>
+                            <li>install node/npm (via nvm)</li>
+                            <li>requires package.json in root directory</li>
+                            <li>dependencies can be installed with "npm install"</li>
+                            <li>run with "npm run dev"</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+{
+    "name": "NAME",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "webpack -w"
+    },
+    "devDependencies": {
+        "babel-core": "6.26.0",
+        "babel-loader": "7.1.2",
+        "babel-preset-env": "1.6.0",
+        "babel-preset-react": "6.24.1",
+        "webpack": "3.6.0"
+    },
+    "dependencies": {
+        "react": "16.0.0",
+        "react-dom": "16.0.0"
+    }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>webpack</h2>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+const path = require("path");
+
+module.exports = {
+    entry: {
+        wfdetail: "./Content/scripts/page/wf-detail.js"
+    },
+    output: {
+        path: path.join(__dirname, "./Content/scripts/dist"),
+        filename: "[name].bundle.js"
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                loader: "babel-loader",
+                exclude: /node_modules/,
+                query: {
+                    presets: [ "env", "react" ]
+                }
+            }
+        ]
+    },
+    resolve: {
+        extensions: [ ".js", ".jsx" ],
+    }
+};
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <h2>Resources</h2>
+                    <ul>
+                        <li><a href="https://github.com/coreybutler/nvm-windows/releases">NVM for Windows</a></li>
+                        <li><a href="https://reactjs.org/docs/hello-world.html">ReactJS</a></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
 </html>
