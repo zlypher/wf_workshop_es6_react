@@ -31,7 +31,7 @@
                 <section>
                     <h2>Topics</h2>
                     <ul>
-                        <li>ES6 Features</li>
+                        <li>ES6 / ES2015</li>
                         <li>React</li>
                         <li>JSX</li>
                         <li>Dive into React</li>
@@ -40,15 +40,15 @@
                 </section>
                 <section>
                     <section>
-                        <h2>ES6 Features</h2>
+                        <h2>ES6 / ES2015</h2>
                     </section>
                     <section>
                         <ul>
                             <li>let/const</li>
-                            <li>Destructuring</li>
-                            <li>Spread</li>
-                            <li>Arrow Functions</li>
-                            <li>Template Literals</li>
+                            <li>destructuring</li>
+                            <li>spread operator</li>
+                            <li>arrow functions</li>
+                            <li>template literals</li>
                             <li>many more...</li>
                         </ul>
                     </section>
@@ -59,17 +59,17 @@ let numberOfPages = 5;
 const answerToEverything = 42;
 </code></pre>
                         <ul>
-                            <li>never use "var"</li>
-                            <li>use "const" as much as possible</li>
-                            <li>everywhere else use "let"</li>
+                            <li>"let" is like traditional block scoping (e.g. C#)</li>
+                            <li>"const" is a constant reference</li>
+                            <li>BEWARE! The referenced object is still mutable</li>
                         </ul>
                     </section>
                     <section>
                         <h3>let/const #2</h3>
                         <ul>
-                            <li>"let" is like traditional block scoping (e.g. C#)</li>
-                            <li>"const" is a constant reference</li>
-                            <li>BEWARE! The referenced object is still mutable</li>
+                            <li>never use "var"</li>
+                            <li>use "const" as much as possible</li>
+                            <li>everywhere else use "let"</li>
                         </ul>
                     </section>
                     <section>
@@ -154,13 +154,12 @@ renderTemplate("World"); // "Hello World"
                         <blockquote>"A JavaScript library for building user interfaces"</blockquote>
                     </section>
                     <section>
-                        <p>Very flexibel; mostly used as a framework for a whole app or website</p>
                         <ul>
                             <li>react is not bound to the DOM</li>
                             <li>component based -> should be independant</li>
                             <li>one way data-binding -> components know, when they should rerender</li>
                             <li>components can be functions or classes</li>
-                            <li>prefer function components (no state)</li>
+                            <li>prefer functional components (no state)</li>
                         </ul>
                     </section>
                     <section>
@@ -199,14 +198,18 @@ ReactDOM.render(
                         <h2>JSX</h2>
                     </section>
                     <section>
-                        <p>is an extendend JS syntax and not required for react. Is used to mix HTML with JS.</p>
+                        <ul>
+                            <li>extended JS syntax</li>
+                            <li>NOT required for react</li>
+                            <li>mix HTML with JS</li>
+                        </ul>
                         <pre><code data-trim>
 let msgClass = "alert alert--success";
 let message = "Hello World";
 
-<h1 className={msgClass}>
+&lt;h1 className={msgClass}&gt;
     {message}
-</h1>
+&lt;/h1&gt;
                         </code></pre>
                     </section>
                 </section>
@@ -220,15 +223,6 @@ let message = "Hello World";
                     </section>
                     <section>
                         <h2>Node packages</h2>
-                        <ul>
-                            <li>install node/npm (via nvm)</li>
-                            <li>requires package.json in root directory</li>
-                            <li>dependencies can be installed with "npm install"</li>
-                            <li>run with "npm run dev"</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>package.json</h2>
                         <ul>
                             <li>install node/npm (via nvm)</li>
                             <li>requires package.json in root directory</li>
@@ -297,9 +291,8 @@ module.exports = {
                     <ul>
                         <li><a href="https://github.com/coreybutler/nvm-windows/releases">NVM for Windows</a></li>
                         <li><a href="https://reactjs.org/docs/hello-world.html">ReactJS</a></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li><a href="https://webpack.js.org/guides/getting-started/">Webpack - Getting Started</a></li>
+                        <li><a href="https://blog.risingstack.com/node-hero-npm-tutorial/">NPM - Tutorial</a></li>
                     </ul>
                 </section>
             </div>
