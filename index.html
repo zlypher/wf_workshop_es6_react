@@ -157,19 +157,16 @@ renderTemplate("World"); // "Hello World"
                         <ul>
                             <li>react is not bound to the DOM</li>
                             <li>component based -> should be independant</li>
-                            <li>one way data-binding -> components know, when they should rerender</li>
+                            <li>one way data-binding</li>
                             <li>components can be functions or classes</li>
-                            <li>prefer functional components (no state)</li>
+                            <li>pass data via props</li>
                         </ul>
                     </section>
                     <section>
                         <h3>class component</h3>
+                        <p>manages its own state</p>
                         <pre><code data-trim>
 class AlertMessage extends React.Component {
-    constructor() {
-        super();
-    }
-
     render() {
         return <h1>{this.props.message}</h1>;
     }
@@ -178,6 +175,7 @@ class AlertMessage extends React.Component {
                     </section>
                     <section>
                         <h3>functional component</h3>
+                        <p>preferable => no state</p>
                         <pre><code data-trim>
 const AlertMessage = (props) => {
     return <h1>{props.message}</h1>;
@@ -186,6 +184,7 @@ const AlertMessage = (props) => {
                     </section>
                     <section>
                         <h3>render to dom</h3>
+                        <p>only once, rerender is handled by component</p>
                         <pre><code data-trim>
 ReactDOM.render(
     &lt;AlertMessage message="Hello World" /&gt;,
@@ -200,8 +199,10 @@ ReactDOM.render(
                     <section>
                         <ul>
                             <li>extended JS syntax</li>
+                            <li>needs compiler (e.g. Babel)</li>
                             <li>NOT required for react</li>
                             <li>mix HTML with JS</li>
+                            <li>"class" => "className"</li>
                         </ul>
                         <pre><code data-trim>
 let msgClass = "alert alert--success";
@@ -210,6 +211,21 @@ let message = "Hello World";
 &lt;h1 className={msgClass}&gt;
     {message}
 &lt;/h1&gt;
+                        </code></pre>
+                    </section>
+                    <section>
+                        <p>compiled to JS</p>
+                        <pre><code data-trim>
+&lt;h1 className={msgClass}&gt;
+    {message}
+&lt;/h1&gt;
+                        </code></pre>
+                        <pre><code data-trim>
+React.createElement(
+    "h1",
+    { className: msgClass },
+    message
+);
                         </code></pre>
                     </section>
                 </section>
@@ -254,6 +270,14 @@ let message = "Hello World";
                     </section>
                     <section>
                         <h2>webpack</h2>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>module bundler for JS</li>
+                            <li>packages app and its dependencies</li>
+                            <li>configured by webpack.config.js</li>
+                            <li>very powerful and highly configurable</li>
+                        </ul>
                     </section>
                     <section>
                         <pre><code data-trim>
